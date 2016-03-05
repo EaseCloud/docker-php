@@ -1,4 +1,4 @@
-FROM php:5-fpm
+FROM php:fpm
 MAINTAINER huangwc@easecloud.cn
 
 COPY ./build.sh /var/www/
