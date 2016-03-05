@@ -31,6 +31,6 @@ apt-get install -y \
 docker-php-ext-install mcrypt
 
 # other php supports
-docker-php-ext-install mysqli
+docker-php-ext-install mysqli mbstring
 
 
