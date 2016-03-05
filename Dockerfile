@@ -1,4 +1,4 @@
-FROM php:fpm
+FROM php:5-fpm
 MAINTAINER huangwc@easecloud.cn
 
 ENV TZ=Asia/Shanghai
