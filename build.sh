@@ -30,6 +30,11 @@ apt-get install -y \
     libmcrypt-dev
 docker-php-ext-install mcrypt
 
+# zip support
+apt-get install -y \
+    zlib1g-dev
+    docker-php-ext-install zip
+
 # other php supports
 docker-php-ext-install mysqli mysql mbstring
 
