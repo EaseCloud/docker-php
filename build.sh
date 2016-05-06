@@ -1,10 +1,10 @@
 #!/bin/bash
 
-apt-get update && apt-get install -y libpng12-dev libjpeg-dev 
+apt-get update && apt-get install -y libpng12-dev libjpeg-dev zlib1g-dev
 
 docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr
 
-docker-php-ext-install gd mysqli mysql opcache mbstring
+docker-php-ext-install gd mysqli mysql opcache mbstring zip
 
 cat <<EOF > /usr/local/etc/php/conf.d/opcache-recommended.ini
 opcache.memory_consumption=128
