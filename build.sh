@@ -9,6 +9,9 @@ apt-get install -y \
 docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr
 docker-php-ext-install gd
 
+# pdo mysql support
+docker-php-ext-install pdo pdo_mysql
+
 # opcache support
 docker-php-ext-install opcache
 cat <<EOF > /usr/local/etc/php/conf.d/opcache-recommended.ini
