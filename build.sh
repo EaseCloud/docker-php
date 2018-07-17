@@ -4,8 +4,8 @@ apt-get update
 
 # gd support
 apt-get install -y \
-    libpng12-dev \
-    libjpeg-dev \
+    libpng-dev \
+    libjpeg-dev
 docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr
 docker-php-ext-install gd
 
@@ -38,6 +38,19 @@ apt-get install -y \
     zlib1g-dev
 docker-php-ext-install zip
 
+# LDAP support
+apt-get install -y \
+    libldb-dev \
+    libldap2-dev
+ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
+    && ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so
+docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/
+docker-php-ext-install ldap
+
+# pgsql support
+apt-get install -y \
+    libpq-dev
+docker-php-ext-install pgsql
 
 # other php supports
 docker-php-ext-install mysqli mbstring
