@@ -6,8 +6,11 @@ apt-get update
 apt-get install -y \
     libpng-dev \
     libjpeg-dev \
-    less
-docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr
+    libfreetype6-dev
+docker-php-ext-configure gd \
+    --with-freetype-dir=/usr/include/freetype2 \
+    --with-png-dir=/usr/include \
+    --with-jpeg-dir=/usr/include 
 docker-php-ext-install gd
 
 # pdo mysql support
@@ -54,7 +57,7 @@ apt-get install -y \
 docker-php-ext-install pgsql
 
 # other php supports
-docker-php-ext-install mysqli mbstring
+docker-php-ext-install mysqli mbstring bcmath
 
 # install wp-cli
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
